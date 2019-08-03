@@ -13,20 +13,16 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, String name, int age, String gender) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+    public Student(Builder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.age = builder.age;
+        this.gender = builder.gender;
     }
 
     @Override
     public String toString() {
         return "Student [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + "]";
-    }
-
-    public static Student.StudentBuilder builder() {
-        return new StudentBuilder();
     }
 
     public int getId() {
@@ -61,7 +57,7 @@ public class Student {
         this.gender = gender;
     }
 
-    public static class StudentBuilder {
+    public static class Builder {
 
         private int id;
 
@@ -71,28 +67,28 @@ public class Student {
 
         private String gender;
 
-        public StudentBuilder id(int id) {
+        public Builder id(int id) {
             this.id = id;
             return this;
         }
 
-        public StudentBuilder name(String name) {
+        public Builder name(String name) {
             this.name = name;
             return this;
         }
 
-        public StudentBuilder age(int age) {
+        public Builder age(int age) {
             this.age = age;
             return this;
         }
 
-        public StudentBuilder gender(String gender) {
+        public Builder gender(String gender) {
             this.gender = gender;
             return this;
         }
 
         public Student build() {
-            return new Student(this.id, this.name, this.age, this.gender);
+            return new Student(this);
         }
     }
 }

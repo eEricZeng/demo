@@ -11,7 +11,7 @@ public class App {
         System.out.println(std.toString());
 
         // builder pattern
-        Student s = Student.builder().id(10001).age(18).name("小明").gender("male").build();
+        Student s = new Student.Builder().id(10001).age(18).name("小明").gender("male").build();
         System.out.println(s.toString());
     }
 
